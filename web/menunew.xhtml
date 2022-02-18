@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+
+    <body>
+        <div id="menu">
+            <h:form>
+                <p:menubar>
+                    <p:submenu label="Registers" icon="ui-icon-contact">
+                        <p:menuitem value="User" url="registeruser.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+                        <p:menuitem value="Food" url="registerfood.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+                        <p:menuitem value="Gas" url="registergas.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+                        <p:menuitem value="Symptom" url="registersymptom.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+                        <p:menuitem value="Disease" url="registerdisease.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+                    </p:submenu>
+                    <p:submenu label="Report" icon="ui-icon-document">
+                        <p:menuitem value="Add" url="addreport_1.xhtml" icon="ui-icon-document" />
+                        <p:menuitem value="Smell" url="" icon="ui-icon-arrowreturnthick-1-e" />
+                    </p:submenu>
+
+                    <p:submenu label="Provenance" icon="ui-icon-help">
+                        <p:menuitem value="Activities" url="provactivities.xhtml" icon="ui-icon-document"/>
+                        <p:menuitem value="Agents" url="provagents.xhtml" icon="ui-icon-document"/>
+                        <p:menuitem value="Entities" url="proventities.xhtml" icon="ui-icon-document"/>
+                        <p:menuitem value="Associations" url="provassociated.xhtml" icon="ui-icon-document"/>
+                        <p:menuitem value="Attributions" url="provatributted.xhtml" icon="ui-icon-document"/>
+                        <p:menuitem value="See All" url="provall.xhtml" icon="ui-icon-document"/>
+                       
+                        <p:submenu label="Search" icon="ui-icon-search">
+                            <p:submenu label="Text">
+                                <p:menuitem value="Workspace" url="#" />
+                            </p:submenu>
+                            <p:menuitem value="File" url="#" />
+                        </p:submenu>
+                    </p:submenu>
+                    <f:facet name="options">
+                        <p:inputText style="margin-right:10px" placeholder="Search"/>
+                        <!--<p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />-->
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+        </div>
+    </body>
+</ui:composition>
+

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="header">
+
+    </ui:define>
+    <ui:define name="content">
+
+        <h:form id="form">
+            <h:panelGrid columns="2" cellpadding="2">
+
+                <p:outputLabel for="name" value="Name:" />
+                <p:inputText id="name" value="#{gasBean.name}"/>
+
+                <p:outputLabel for="formula" value="Formula:" />
+                <p:inputText id="formula" value="#{gasBean.formula}"/>
+
+                <p:outputLabel for="sensor" value="Sensor:" />
+                <p:inputText id="sensor" value="#{gasBean.sensor}"/>
+
+                <p:commandButton value="Register" ajax="true" update="messages"
+                                 actionListener="#{gasBean.buttonAction}" id="register" />
+            </h:panelGrid>
+            <p:growl id="messages" showDetail="true" />
+
+            <p:dataList value="#{gasBean.gass}" var="gas" type="ordered">
+                <f:facet name="header">
+                    Gas List
+                </f:facet>
+                #{gas.id}  - #{gas.name} - #{gas.formula} - #{gas.sensor}
+            </p:dataList>
+        </h:form>
+    </ui:define>
+</ui:composition>

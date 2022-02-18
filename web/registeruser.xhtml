@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="header">
+
+    </ui:define>
+    <ui:define name="content">
+
+        <h:form id="form">
+            <h:panelGrid columns="2" cellpadding="3">
+
+                <p:outputLabel for="name" value="Name:" />
+                <p:inputText id="name" value="#{userBean.name}"/>
+
+                <p:outputLabel for="gender" value="Gender:" />
+                <p:selectOneRadio id="gender" value="#{userBean.gender}">
+                    <f:selectItem itemLabel="female" itemValue="female" />
+                    <f:selectItem itemLabel="male" itemValue="male" />
+                </p:selectOneRadio>
+
+                <p:outputLabel for="age" value="Age:" />
+                <p:inputText id="age" value="#{userBean.age}"/>
+
+                <p:outputLabel for="weight" value="Weight:" />
+                <p:inputText id="weight" value="#{userBean.weight}"/>
+
+                <p:outputLabel for="height" value="Height:" />
+                <p:inputText id="height" value="#{userBean.height}"/>
+
+                <p:outputLabel for="frequency_exercise" value="Exercise Frequency (days per week):" />
+                <p:inputText id="frequency_exercise" value="#{userBean.frequency_exercise}"/>
+
+                <h3>Select Diseases</h3>
+                <p:selectManyCheckbox id="grid" value="#{userBean.selectedDiseases}" layout="grid" columns="3">
+                    <f:selectItems value="#{diseaseBean.diseases}" var="disease" itemLabel="#{disease.name}" itemValue="#{disease.id}" />
+                </p:selectManyCheckbox>
+
+
+                <p:commandButton value="Register" ajax="true" update="messages"
+                                 actionListener="#{userBean.buttonAction}" id="register" />
+            </h:panelGrid>
+            <p:growl id="messages" showDetail="true" />
+
+            <p:outputPanel id="display" style="width:550px;padding-left:5px;margin-top:10px">
+                <p:dataList value="#{userBean.users}" var="user" type="ordered">
+                    <f:facet name="header">
+                        User List
+                    </f:facet>
+                    id: #{user.id}
+                </p:dataList>
+            </p:outputPanel>
+        </h:form>
+    </ui:define>
+</ui:composition>

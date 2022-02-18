@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/sma</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">tfmsifm</property>
+        <property name="connection.pool_size">1</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">validate</property>
+        <mapping class="model.User" />
+        <mapping class="model.Report" />
+        <mapping class="model.Gas" />
+        <mapping class="model.Disease" />
+        <mapping class="model.Food" />
+        <mapping class="model.Symptom" />
+        <mapping class="model.Report_Gas" />
+        <mapping class="model.Report_Food" />
+        <mapping class="model.Report_Symptom" />
+        <mapping class="model.User_Disease" />
+        <mapping class="PROV.DM.Agent"/>
+        <mapping class="PROV.DM.Entity" />
+        <mapping class="model.EntityN" />
+        <mapping class="PROV.DM.WasDerivedFrom" />
+        <mapping class="PROV.DM.Used" />
+        <mapping class="PROV.DM.PrimarySource" />
+        <mapping class="PROV.DM.WasEndedBy" />
+        <mapping class="PROV.DM.WasAssociatedWith" />
+        <mapping class="PROV.DM.Revision" />
+        <mapping class="PROV.DM.ActedOnBehalfOf" />
+        <mapping class="PROV.DM.Activity" />
+        <mapping class="PROV.DM.WasStartedBy" />
+        <mapping class="PROV.DM.WasAttributedTo" />
+        <mapping class="PROV.DM.HadMember" />
+        <mapping class="PROV.DM.WasStartedByAA" />
+        <mapping class="PROV.DM.WasEndedByAA" />
+        <mapping class="PROV.DM.WasInvalidatedBy" />
+        <mapping class="PROV.DM.WasInformedBy" />
+        <mapping class="PROV.DM.ActedOnBehalfOfAgAc" />
+        <mapping class="PROV.DM.WasDerivedFromEA" />
+        <mapping class="PROV.DM.WasAssociatedWithAE" />
+        <mapping class="PROV.DM.Quotation" />
+        <mapping class="PROV.DM.SpecializationOf" />
+        <mapping class="PROV.DM.WasGeneratedBy" />
+        <mapping class="PROV.DM.AlternateOf" />
+    </session-factory>
+</hibernate-configuration>

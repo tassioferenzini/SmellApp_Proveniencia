@@ -1,0 +1,525 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Dec 13, 2016 at 07:00 PM
+-- Server version: 5.6.33
+-- PHP Version: 7.0.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `smell_app`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Disease`
+--
+
+CREATE TABLE `Disease` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `portuguesename` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Disease`
+--
+
+INSERT INTO `Disease` (`id`, `name`, `description`, `portuguesename`) VALUES
+(1, 'Diabetes', 'Diabetes is diagnosed when a person has too much glucose (sugar) in the blood', 'Diabetes'),
+(2, 'Irritable bowel syndrome', 'A common disorder that affects the large intestine (colon).', 'Síndrome do Intestino Irritado'),
+(3, 'Gastritis', 'An inflammation or irritation of the lining of the stomach', 'Gastrite'),
+(4, 'Obesity', ' A condition where a person has accumulated so much body', 'Obesidade'),
+(5, 'Constipation', 'It refers to bowel movements that are infrequent or hard to pass.', 'Constipação'),
+(6, 'Stomach Cancer', 'include significant weight loss, G.I. bleeding and difficulty swallowing', 'Câncer de Estômago'),
+(7, 'Peptic Ulcers', 'A break in the surface lining of the stomach or duodenum', 'Úlcera Péptica'),
+(8, 'Non-Ulcer Dyspepsia', 'A common problem where patients suffer from indigestion and other symptoms suggestive of an ulcer', 'Dispepsia não ulcerosa'),
+(9, 'Gastroparesis', 'An uncommon disorder where the stomach is unable to empty its contents ', 'Gastroparesia'),
+(10, 'Gastroenteritis', 'An inflammation of the gastrointestinal tract in both the stomach and the small intestine.', 'Gastroenterite'),
+(11, 'Acid Reflux Disease', '', 'Doença de Refluxo Ácido');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Food`
+--
+
+CREATE TABLE `Food` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `portuguesename` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Food`
+--
+
+INSERT INTO `Food` (`id`, `name`, `portuguesename`) VALUES
+(1, 'Apple', 'Maçã'),
+(2, 'Orange', 'Laranja'),
+(3, 'Garlic', 'Alho'),
+(4, 'Bean', 'Feijão'),
+(5, 'Rice', 'Arroz'),
+(6, 'Meat', 'Carne'),
+(7, 'Chicken', 'Frango'),
+(8, 'Spaghetti', 'Macarrão'),
+(9, 'Tomato Sauce', 'Molho de Tomate'),
+(10, 'Potato', 'Batata'),
+(11, 'Sweet Potato', 'Batata Doce'),
+(12, 'Okra', 'Quiabo'),
+(13, 'Milk', 'Leite'),
+(14, 'Soy', 'Soja'),
+(15, 'Orange Juice', 'Suco de Laranja'),
+(16, 'Pineapple Juice', 'Abacaxi'),
+(17, 'Pineapple', 'Suco de Abacaxi'),
+(18, 'Fasting', 'Jejum'),
+(19, 'Shrimp', 'Camarão'),
+(20, 'Onion', 'Cebola'),
+(21, 'Sugar', 'Açúcar'),
+(22, 'Yogurt', 'Iogurte'),
+(23, 'Milk Cream', 'Creme de Leite'),
+(24, 'Bread', 'Pão'),
+(25, 'Cookie', 'Biscoito'),
+(26, 'Raw vegetables and veggies', 'Vegetais e Verduras crus'),
+(27, 'Beet', 'Beterraba'),
+(28, 'Broccoli', 'Brócolis'),
+(29, 'Cabbage', 'Repolho'),
+(30, 'Cucumber', 'Pepino'),
+(31, 'Pepper', 'Pimentão'),
+(32, 'Pork', 'Carne de Porco'),
+(33, 'Pie', 'Torta'),
+(34, 'Pasta', 'Massa'),
+(35, 'Chickpeas', 'Grão de bico');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gas`
+--
+
+CREATE TABLE `gas` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `formula` varchar(50) DEFAULT NULL,
+  `sensor` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gas`
+--
+
+INSERT INTO `gas` (`id`, `name`, `formula`, `sensor`) VALUES
+(5, 'Methane', 'CH4', 'MQ-4'),
+(6, 'Alcohol', '', 'MQ-3'),
+(7, 'Hydrogen', 'H2', 'MQ-8'),
+(8, 'Carbon Dioxide', 'CO2', 'MQ135');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Report`
+--
+
+CREATE TABLE `Report` (
+  `id` int(11) NOT NULL,
+  `date` date DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Report`
+--
+
+INSERT INTO `Report` (`id`, `date`, `user_id`, `timestamp`) VALUES
+(1, '2016-11-24', 17, '2016-11-24 18:20:43'),
+(2, '2016-11-24', 18, '2016-11-24 18:20:43'),
+(3, '2016-11-24', 18, '2016-11-24 18:20:43'),
+(4, '2016-11-24', 18, '2016-11-24 18:20:43'),
+(5, '2016-11-24', 18, '2016-11-24 18:20:43'),
+(6, '2016-11-24', 18, '2016-11-24 18:23:02'),
+(7, NULL, 18, '2016-11-24 18:25:06'),
+(8, NULL, 17, '2016-11-24 18:29:27'),
+(9, NULL, 24, '2016-11-24 18:54:22'),
+(10, NULL, 25, '2016-11-25 00:26:26'),
+(11, NULL, 25, '2016-11-25 00:52:57'),
+(12, NULL, 25, '2016-11-26 14:51:36'),
+(13, NULL, 26, '2016-11-30 04:25:38'),
+(14, NULL, 27, '2016-11-30 04:39:50'),
+(15, NULL, 19, '2016-12-13 13:21:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `report_food`
+--
+
+CREATE TABLE `report_food` (
+  `report_id` int(11) NOT NULL,
+  `food_id` int(11) NOT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `hours_ago` int(11) DEFAULT NULL,
+  `report_food_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `report_food`
+--
+
+INSERT INTO `report_food` (`report_id`, `food_id`, `description`, `hours_ago`, `report_food_id`) VALUES
+(1, 1, NULL, 0, 1),
+(1, 3, NULL, 0, 2),
+(1, 6, NULL, 0, 3),
+(1, 2, NULL, 0, 4),
+(2, 1, NULL, 0, 5),
+(2, 18, NULL, 0, 6),
+(3, 3, NULL, 0, 7),
+(3, 2, NULL, 0, 8),
+(4, 3, NULL, 0, 9),
+(4, 12, NULL, 0, 10),
+(5, 1, NULL, 0, 11),
+(6, 13, NULL, 0, 12),
+(8, 13, NULL, 0, 13),
+(9, 1, NULL, 0, 14),
+(10, 4, NULL, 0, 15),
+(10, 7, NULL, 0, 16),
+(10, 3, NULL, 0, 17),
+(10, 6, NULL, 0, 18),
+(10, 13, NULL, 0, 19),
+(10, 5, NULL, 0, 20),
+(11, 1, NULL, 0, 21),
+(12, 4, NULL, 0, 22),
+(13, 7, NULL, 0, 23),
+(13, 3, NULL, 0, 24),
+(13, 6, NULL, 0, 25),
+(13, 10, NULL, 0, 26),
+(14, 4, NULL, 0, 27),
+(14, 7, NULL, 0, 28),
+(14, 3, NULL, 0, 29),
+(14, 10, NULL, 0, 30),
+(15, 18, NULL, 0, 31),
+(15, 13, NULL, 0, 32);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `report_gas`
+--
+
+CREATE TABLE `report_gas` (
+  `report_id` int(11) NOT NULL,
+  `gas_id` int(11) NOT NULL,
+  `value` double NOT NULL,
+  `description` varchar(150) DEFAULT NULL,
+  `number_measurements` int(11) DEFAULT NULL,
+  `count_time` int(11) DEFAULT NULL,
+  `report_gas_id` int(11) NOT NULL,
+  `source` varchar(100) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `humidity` double DEFAULT NULL,
+  `temperature` double DEFAULT NULL,
+  `value_environment` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `report_symptom`
+--
+
+CREATE TABLE `report_symptom` (
+  `report_id` int(11) NOT NULL,
+  `symptom_id` int(11) NOT NULL,
+  `report_symptom_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `report_symptom`
+--
+
+INSERT INTO `report_symptom` (`report_id`, `symptom_id`, `report_symptom_id`) VALUES
+(1, 1, 1),
+(1, 5, 2),
+(2, 4, 3),
+(3, 6, 4),
+(5, 1, 5),
+(6, 1, 6),
+(9, 3, 7),
+(10, 4, 8),
+(11, 2, 9),
+(12, 1, 10),
+(13, 1, 11),
+(13, 6, 12),
+(14, 1, 13),
+(14, 6, 14),
+(15, 1, 15),
+(15, 6, 16);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Symptom`
+--
+
+CREATE TABLE `Symptom` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `portuguesename` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Symptom`
+--
+
+INSERT INTO `Symptom` (`id`, `name`, `description`, `portuguesename`) VALUES
+(1, 'Heartburn', 'It happens when stomach acid backs up into your esophagus', 'Azia'),
+(2, 'Menstruation', 'Series of natural processes that your body goes through to prepare for pregnancy', 'Menstruação'),
+(3, 'Acid Reflux', 'A condition in which acid backs up from the stomach into the esophagus', 'Refluxo'),
+(4, 'Intestinal Colic', '', 'Cólica Intestinal'),
+(5, 'Belly Ache', '', 'Dor de Barriga'),
+(6, 'Menstrual Colic', '', 'Cólica Menstrual');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `gender` enum('female','male') DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `weight` double DEFAULT NULL,
+  `frequency_exercise` int(11) DEFAULT NULL,
+  `height` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `gender`, `age`, `weight`, `frequency_exercise`, `height`) VALUES
+(14, 'Juliano', 'male', 35, 92, 6, 1.75),
+(16, 'Nathalia', 'female', 28, 75.9, 0, 1.67),
+(17, 'TesteUser', 'male', 10, 20, 3, 30),
+(18, 'Teste User2', 'male', 25, 70, 2, 1.85),
+(19, 'Albert', 'male', 21, 55, 0, 1.67),
+(20, 'Luana', 'female', 29, 70, 2, 1.9),
+(21, 'Renan', 'male', 15, 90, 0, 1.7),
+(22, 'Francisco', 'male', 39, 110, 0, 1.75),
+(23, 'Marx', 'male', 30, 85, 1, 1.7),
+(24, NULL, 'male', 13, 0, 0, 0),
+(25, NULL, 'male', 28, 94, 4, 1.81),
+(26, NULL, 'female', 28, 65, 0, 1.67),
+(27, NULL, 'female', 28, 65, 0, 1.67);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_disease`
+--
+
+CREATE TABLE `user_disease` (
+  `user_id` int(11) NOT NULL,
+  `disease_id` int(11) NOT NULL,
+  `user_disease_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_disease`
+--
+
+INSERT INTO `user_disease` (`user_id`, `disease_id`, `user_disease_id`) VALUES
+(19, 1, 1),
+(19, 2, 2),
+(20, 1, 3),
+(20, 2, 4),
+(21, 1, 5),
+(21, 4, 6),
+(21, 5, 7),
+(21, 9, 8),
+(22, 4, 9),
+(24, 1, 10),
+(26, 11, 11),
+(27, 11, 12);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Disease`
+--
+ALTER TABLE `Disease`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `portuguesename` (`portuguesename`);
+
+--
+-- Indexes for table `Food`
+--
+ALTER TABLE `Food`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `portuguesename` (`portuguesename`);
+
+--
+-- Indexes for table `gas`
+--
+ALTER TABLE `gas`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `formula` (`formula`);
+
+--
+-- Indexes for table `Report`
+--
+ALTER TABLE `Report`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `report_food`
+--
+ALTER TABLE `report_food`
+  ADD PRIMARY KEY (`report_food_id`),
+  ADD KEY `report_id` (`report_id`,`food_id`),
+  ADD KEY `food_cons` (`food_id`);
+
+--
+-- Indexes for table `report_gas`
+--
+ALTER TABLE `report_gas`
+  ADD PRIMARY KEY (`report_gas_id`),
+  ADD KEY `id_report` (`report_id`,`gas_id`),
+  ADD KEY `gas_cons` (`gas_id`);
+
+--
+-- Indexes for table `report_symptom`
+--
+ALTER TABLE `report_symptom`
+  ADD PRIMARY KEY (`report_symptom_id`),
+  ADD KEY `id_report` (`report_id`,`symptom_id`),
+  ADD KEY `symptom_cons` (`symptom_id`);
+
+--
+-- Indexes for table `Symptom`
+--
+ALTER TABLE `Symptom`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `portuguesename` (`portuguesename`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_disease`
+--
+ALTER TABLE `user_disease`
+  ADD PRIMARY KEY (`user_disease_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `disease_id` (`disease_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Disease`
+--
+ALTER TABLE `Disease`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `Food`
+--
+ALTER TABLE `Food`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `gas`
+--
+ALTER TABLE `gas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `Report`
+--
+ALTER TABLE `Report`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `report_food`
+--
+ALTER TABLE `report_food`
+  MODIFY `report_food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+--
+-- AUTO_INCREMENT for table `report_gas`
+--
+ALTER TABLE `report_gas`
+  MODIFY `report_gas_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `report_symptom`
+--
+ALTER TABLE `report_symptom`
+  MODIFY `report_symptom_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `Symptom`
+--
+ALTER TABLE `Symptom`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT for table `user_disease`
+--
+ALTER TABLE `user_disease`
+  MODIFY `user_disease_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Report`
+--
+ALTER TABLE `Report`
+  ADD CONSTRAINT `FK_q8xq6jgl38r39cogrph09w76m` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`);
+
+--
+-- Constraints for table `report_food`
+--
+ALTER TABLE `report_food`
+  ADD CONSTRAINT `food_cons` FOREIGN KEY (`food_id`) REFERENCES `food` (`id`),
+  ADD CONSTRAINT `report_constraint` FOREIGN KEY (`report_id`) REFERENCES `report` (`id`);
+
+--
+-- Constraints for table `report_gas`
+--
+ALTER TABLE `report_gas`
+  ADD CONSTRAINT `gas_cons` FOREIGN KEY (`gas_id`) REFERENCES `gas` (`id`),
+  ADD CONSTRAINT `report_cons` FOREIGN KEY (`report_id`) REFERENCES `report` (`id`);
+
+--
+-- Constraints for table `report_symptom`
+--
+ALTER TABLE `report_symptom`
+  ADD CONSTRAINT `FK_5yghfgi8amkfy72krf5qhthdr` FOREIGN KEY (`report_id`) REFERENCES `Report` (`id`),
+  ADD CONSTRAINT `symptom_cons` FOREIGN KEY (`symptom_id`) REFERENCES `symptom` (`id`);
+
+--
+-- Constraints for table `user_disease`
+--
+ALTER TABLE `user_disease`
+  ADD CONSTRAINT `disease_cons` FOREIGN KEY (`disease_id`) REFERENCES `disease` (`id`),
+  ADD CONSTRAINT `user_cons` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);

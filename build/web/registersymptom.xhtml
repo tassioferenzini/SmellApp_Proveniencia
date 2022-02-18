@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="header">
+
+    </ui:define>
+    <ui:define name="content">
+
+        <h:form id="form">
+            <h:panelGrid columns="2" cellpadding="2">
+
+                <p:outputLabel for="name" value="Name:" />
+                <p:inputText id="name" value="#{symptomBean.name}"/>
+
+                <p:outputLabel for="portuguesename" value="Portuguese Name:" />
+                <p:inputText id="portuguesename" value="#{symptomBean.portugusename}"/>
+
+                <p:outputLabel for="description" value="Description:" />
+                <p:inputText id="description" value="#{symptomBean.description}"/>
+
+                <p:commandButton value="Register" ajax="true" update="messages"
+                                 actionListener="#{symptomBean.buttonAction}" id="register" />
+            </h:panelGrid>
+            <p:growl id="messages" showDetail="true" />
+
+            <p:dataList value="#{symptomBean.symptoms}" var="symptom" type="ordered">
+                <f:facet name="header">
+                    Symptom List
+                </f:facet>
+                #{symptom.id}  - #{symptom.name} - #{symptom.description}
+            </p:dataList>
+        </h:form>
+    </ui:define>
+</ui:composition>
